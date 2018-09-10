@@ -47,6 +47,9 @@ public class UwuMod {
 		
 		@Config.Name("Narrator only says uwu")
 		public static boolean narratorUwu = true;
+		
+		@Config.Name("What the narrator actually says")
+		public static String narratorSays = "ooh wu";
 	}
 	
 	@Mod.EventHandler

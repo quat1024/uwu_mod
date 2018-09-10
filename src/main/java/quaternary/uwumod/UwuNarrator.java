@@ -11,7 +11,7 @@ public class UwuNarrator implements Narrator {
 	
 	@Override
 	public void say(String msg) {
-		delegate.say(UwuMod.ModConfig.narratorUwu ? "ooh wu" : msg);
+		delegate.say(UwuMod.ModConfig.narratorUwu ? UwuMod.ModConfig.narratorSays : msg);
 	}
 	
 	@Override
