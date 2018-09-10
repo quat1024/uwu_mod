@@ -31,7 +31,7 @@ import java.lang.reflect.Field;
 public class UwuMod {
 	public static final String MODID = "uwu_mod";
 	public static final String NAME = "uwu mod";
-	public static final String VERSION = "GRADLE.VERSION";
+	public static final String VERSION = "GRADLE:VERSION";
 	
 	public static final ResourceLocation hell = new ResourceLocation(MODID, "uwu");
 	
