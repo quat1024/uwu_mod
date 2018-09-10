@@ -1,0 +1,16 @@
+[
+{
+  "modid": "uwu_mod",
+  "name": "uwu mod",
+  "description": "uwu",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["quaternary", "TehNut"],
+  "credits": "thanks nut",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
