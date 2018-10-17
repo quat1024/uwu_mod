@@ -15,12 +15,14 @@ import net.minecraft.util.text.translation.LanguageMap;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
@@ -54,20 +56,27 @@ public class UwuMod {
 		
 		@Config.Name("What the narrator actually says")
 		public static String narratorSays = "ooh wu";
+		
+		@Config.Name("Uwu locale hell")
+		@Config.Comment("Thats some good shit right there")
+		@Config.RequiresMcRestart
+		public static boolean uwuLocaleHell = true;
 	}
 	
 	@Mod.EventHandler
 	public void construction(FMLConstructionEvent e) {
-		try {
-			Field localeField = ReflectionHelper.findField(I18n.class, "i18nLocale", "field_135054_a");
-			localeField.set(null, new UwuLocale());
-			LanguageMap languageMap = new UwuLanguageMap();
-			Field languageMapField = ReflectionHelper.findField(net.minecraft.util.text.translation.I18n.class, "localizedName", "field_74839_a");
-			EnumHelper.setFailsafeFieldValue(languageMapField, null, languageMap);
-			Field fallbackMapField = ReflectionHelper.findField(net.minecraft.util.text.translation.I18n.class, "fallbackTranslator", "field_150828_b ");
-			EnumHelper.setFailsafeFieldValue(fallbackMapField, null, languageMap);
-		} catch (Exception uwu) {
-			LogManager.getLogger(NAME).error("Problem making uwu locale", uwu);
+		if(ModConfig.uwuLocaleHell) {
+			try {
+				Field localeField = ReflectionHelper.findField(I18n.class, "i18nLocale", "field_135054_a");
+				localeField.set(null, new UwuLocale());
+				LanguageMap languageMap = new UwuLanguageMap();
+				Field languageMapField = ReflectionHelper.findField(net.minecraft.util.text.translation.I18n.class, "localizedName", "field_74839_a");
+				EnumHelper.setFailsafeFieldValue(languageMapField, null, languageMap);
+				Field fallbackMapField = ReflectionHelper.findField(net.minecraft.util.text.translation.I18n.class, "fallbackTranslator", "field_150828_b ");
+				EnumHelper.setFailsafeFieldValue(fallbackMapField, null, languageMap);
+			} catch(Exception uwu) {
+				LogManager.getLogger(NAME).error("Problem making uwu locale", uwu);
+			}
 		}
 	}
 
