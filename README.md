@@ -5,10 +5,12 @@ Client side mod. Makes every sound change to nut saying uwu
 
 Also makes the narrator only say uwu
 
+Also also makes the language map all uwu
+
 Why
 ===
 
-I hate myself
+uwu
 
 License
 =======
